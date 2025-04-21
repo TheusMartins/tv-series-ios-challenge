@@ -1,0 +1,33 @@
+name: TVSeriesApp
+options:
+  bundleIdPrefix: com.matheusmartins
+  deploymentTarget:
+    iOS: '15.0'
+
+targets:
+  TVSeriesApp:
+    type: application
+    platform: iOS
+    sources:
+      - App
+    dependencies:
+      - target: Network
+      - target: UI
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: TVSeriesApp
+        CFBundleIdentifier: com.matheusmartins.tvseries
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+
+  Network:
+    type: framework
+    platform: iOS
+    sources:
+      - Modules/Network/Sources
+
+  UI:
+    type: framework
+    platform: iOS
+    sources:
+      - Modules/UI/Sources
