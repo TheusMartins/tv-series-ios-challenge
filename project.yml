@@ -4,30 +4,58 @@ options:
   deploymentTarget:
     iOS: '15.0'
 
+configs:
+  Debug: debug
+  Release: release
+
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+
+projectReferences:
+  Networking:
+    path: Modules/Networking/Networking.xcodeproj
+  UI:
+    path: Modules/UI/UI.xcodeproj
+
 targets:
   TVSeriesApp:
     type: application
     platform: iOS
     sources:
-      - App
-    dependencies:
-      - target: Network
-      - target: UI
+      - path: App/Sources
     info:
       path: App/Info.plist
-      properties:
-        CFBundleDisplayName: TVSeriesApp
-        CFBundleIdentifier: com.matheusmartins.tvseries
-        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+    dependencies:
+      - target: Networking/Networking
+      - target: UI/UI
+    settings:
+      base:
+        PRODUCT_NAME: TVSeriesApp
 
-  Network:
-    type: framework
+  TVSeriesAppTests:
+    type: bundle.unit-test
     platform: iOS
     sources:
-      - Modules/Network/Sources
+      - path: App/Tests/TVSeriesAppTests
+    dependencies:
+      - target: TVSeriesApp
+    info:
+      path: App/Tests/TVSeriesAppTests/Info.plist
+    settings:
+      base:
+        PRODUCT_NAME: TVSeriesAppTests
 
-  UI:
-    type: framework
+  TVSeriesCI:
+    type: bundle.unit-test
     platform: iOS
     sources:
-      - Modules/UI/Sources
+      - path: App/Tests/CI
+    dependencies:
+      - target: Networking/NetworkingTests
+      - target: TVSeriesApp
+    info:
+      path: App/Tests/CI/Info.plist
+    settings:
+      base:
+        PRODUCT_NAME: TVSeriesCI

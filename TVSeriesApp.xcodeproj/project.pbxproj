@@ -7,29 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D82475B143E193E5872A113 /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE7099810AB3B4DB7A821CE /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5A3E3B8C1E63E85345D5BB52 /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE7099810AB3B4DB7A821CE /* UI.framework */; };
-		8B11265479E5291A8FBFAC5D /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEFF6EA9433AC55B7C98EDF3 /* Network.framework */; };
-		90F861D265A4D6D4A1CE1210 /* TVMazeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51813624BF401D793DC3E9 /* TVMazeService.swift */; };
-		99C6BDFD0F44314670AFD2BD /* SeriesCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECDE757CC06910D2BC2E587 /* SeriesCardView.swift */; };
-		C1E25054293552F80E5D5E99 /* Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEFF6EA9433AC55B7C98EDF3 /* Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C674276B393E8201E6112383 /* SeriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B382D8C3102087208950EDF /* SeriesListView.swift */; };
+		133C6B52AF1E57AD12F6F7D1 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F13871607145836BD91DF1 /* Networking.framework */; };
+		3B8A8604A5505C406E9C8197 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F13871607145836BD91DF1 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		636F19C91AEBCEE8CC097A6B /* UI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A5A1A5BBFDFF4C9F91C5C10C /* UI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AE419246324FBB33BCA03AC1 /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A1A5BBFDFF4C9F91C5C10C /* UI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1FAA5FB02DE9F161DE76BA62 /* PBXContainerItemProxy */ = {
+		3D3AA99A36EF93E512944DD9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 947F29BD922BA938D8EBB56A /* Project object */;
+			containerPortal = B8932609957E883EF1DEBB87 /* UI */;
 			proxyType = 1;
-			remoteGlobalIDString = 99B322EBBC7117A886420A18;
+			remoteGlobalIDString = A71F8DD2A4C18857FFBFF581;
 			remoteInfo = UI;
 		};
-		4CA0094CCAEC784851376307 /* PBXContainerItemProxy */ = {
+		5192271E6C2261232CFFBB24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF0DB3DE9FAA6ABDCFCE6722 /* Networking */;
+			proxyType = 1;
+			remoteGlobalIDString = F37FCD8E01CA56BB3BD87FD6;
+			remoteInfo = NetworkingTests;
+		};
+		603A7511BAA4B3F6A628E229 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 947F29BD922BA938D8EBB56A /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D1F064E53FB86A5CD5EFBE43;
-			remoteInfo = Network;
+			remoteGlobalIDString = 65C487EC1D528FA575077F41;
+			remoteInfo = TVSeriesApp;
+		};
+		7947153E608A43EFD9F40F6F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8932609957E883EF1DEBB87 /* UI */;
+			proxyType = 2;
+			remoteGlobalIDString = 299F893EA0E102E226A63030;
+			remoteInfo = UI;
+		};
+		805EAB9CC09385136B39871A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF0DB3DE9FAA6ABDCFCE6722 /* Networking */;
+			proxyType = 2;
+			remoteGlobalIDString = CEB94AB396956A091A12E05B;
+			remoteInfo = Networking;
+		};
+		83D8248FFA1C6E5A8C1D9B3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 947F29BD922BA938D8EBB56A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65C487EC1D528FA575077F41;
+			remoteInfo = TVSeriesApp;
+		};
+		A8095F6590249D7283ED41E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF0DB3DE9FAA6ABDCFCE6722 /* Networking */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E63DC1CCC5B22B03E06E966;
+			remoteInfo = Networking;
+		};
+		F7F4E2C74903B20806BB5E43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF0DB3DE9FAA6ABDCFCE6722 /* Networking */;
+			proxyType = 2;
+			remoteGlobalIDString = C28CA6C82EF4E4680A851764;
+			remoteInfo = NetworkingTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,8 +79,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C1E25054293552F80E5D5E99 /* Network.framework in Embed Frameworks */,
-				4D82475B143E193E5872A113 /* UI.framework in Embed Frameworks */,
+				3B8A8604A5505C406E9C8197 /* Networking.framework in Embed Frameworks */,
+				636F19C91AEBCEE8CC097A6B /* UI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -49,13 +88,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4B382D8C3102087208950EDF /* SeriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListView.swift; sourceTree = "<group>"; };
-		4FE7099810AB3B4DB7A821CE /* UI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56C116AB672407890BF5FE03 /* TVSeriesApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TVSeriesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6F67BFE63ADAC6C094A0D65A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		8B51813624BF401D793DC3E9 /* TVMazeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeService.swift; sourceTree = "<group>"; };
-		CEFF6EA9433AC55B7C98EDF3 /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FECDE757CC06910D2BC2E587 /* SeriesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesCardView.swift; sourceTree = "<group>"; };
+		7D67B62EC6233D371904D2BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A147B8F99966567073A6CC7D /* TVSeriesCI.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TVSeriesCI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8932609957E883EF1DEBB87 /* UI */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UI; path = Modules/UI/UI.xcodeproj; sourceTree = "<group>"; };
+		DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TVSeriesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F46B81FBB265CB46813425C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FF0DB3DE9FAA6ABDCFCE6722 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking; path = Modules/Networking/Networking.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B11265479E5291A8FBFAC5D /* Network.framework in Frameworks */,
-				5A3E3B8C1E63E85345D5BB52 /* UI.framework in Frameworks */,
+				133C6B52AF1E57AD12F6F7D1 /* Networking.framework in Frameworks */,
+				AE419246324FBB33BCA03AC1 /* UI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,69 +113,111 @@
 		26058C9BEA5DB8ABD295C6B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CEFF6EA9433AC55B7C98EDF3 /* Network.framework */,
 				56C116AB672407890BF5FE03 /* TVSeriesApp.app */,
-				4FE7099810AB3B4DB7A821CE /* UI.framework */,
+				DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */,
+				A147B8F99966567073A6CC7D /* TVSeriesCI.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		268A48DEE3760F100743C1AA /* Sources */ = {
+		29FADEBE1205C7CBF400D97D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FECDE757CC06910D2BC2E587 /* SeriesCardView.swift */,
+				94F13871607145836BD91DF1 /* Networking.framework */,
+				AA6EB023F9B610F08B211BA7 /* NetworkingTests.xctest */,
 			);
-			name = Sources;
-			path = Modules/UI/Sources;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		5F5E476C90AA3C2319C25687 /* App */ = {
+		7D094D21E69ECAE240A1A44B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6F67BFE63ADAC6C094A0D65A /* Info.plist */,
-				7807E1361075CB1E25B71871 /* Features */,
+				A5A1A5BBFDFF4C9F91C5C10C /* UI.framework */,
 			);
-			path = App;
+			name = Products;
 			sourceTree = "<group>";
 		};
-		7807E1361075CB1E25B71871 /* Features */ = {
+		A0F61AA83FEBCCAA4A4A061A /* Projects */ = {
 			isa = PBXGroup;
 			children = (
-				85691903206F3BE253542A49 /* SeriesList */,
+				FF0DB3DE9FAA6ABDCFCE6722 /* Networking */,
+				B8932609957E883EF1DEBB87 /* UI */,
 			);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		85691903206F3BE253542A49 /* SeriesList */ = {
-			isa = PBXGroup;
-			children = (
-				4B382D8C3102087208950EDF /* SeriesListView.swift */,
-			);
-			path = SeriesList;
+			name = Projects;
 			sourceTree = "<group>";
 		};
 		AA142479D82348938C2E23D7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				8B51813624BF401D793DC3E9 /* TVMazeService.swift */,
 			);
 			name = Sources;
-			path = Modules/Network/Sources;
+			path = App/Sources;
 			sourceTree = "<group>";
 		};
 		AF7FEA49D904B974FEE2BC1B = {
 			isa = PBXGroup;
 			children = (
-				5F5E476C90AA3C2319C25687 /* App */,
+				E6CE736715F28DC540556591 /* CI */,
 				AA142479D82348938C2E23D7 /* Sources */,
-				268A48DEE3760F100743C1AA /* Sources */,
+				FBBC079E30DD87D80B2A6AA9 /* TVSeriesAppTests */,
 				26058C9BEA5DB8ABD295C6B2 /* Products */,
+				A0F61AA83FEBCCAA4A4A061A /* Projects */,
 			);
+			sourceTree = "<group>";
+		};
+		E6CE736715F28DC540556591 /* CI */ = {
+			isa = PBXGroup;
+			children = (
+				7D67B62EC6233D371904D2BF /* Info.plist */,
+			);
+			name = CI;
+			path = App/Tests/CI;
+			sourceTree = "<group>";
+		};
+		FBBC079E30DD87D80B2A6AA9 /* TVSeriesAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				F46B81FBB265CB46813425C3 /* Info.plist */,
+			);
+			name = TVSeriesAppTests;
+			path = App/Tests/TVSeriesAppTests;
+			sourceTree = "<group>";
+		};
+		"TEMP_50B8A568-E07B-4829-8B2C-B82D88F0288D" /* Features */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		"TEMP_9B5E60B5-4707-4FA4-8F9C-78AF22CC3989" /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		45280A1A7667C4431A915D6C /* TVSeriesAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A204F7CAFE7377122860C5F /* Build configuration list for PBXNativeTarget "TVSeriesAppTests" */;
+			buildPhases = (
+				C753F7EB98D35857321B8EAE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6C71DEDF223E9D245292045 /* PBXTargetDependency */,
+			);
+			name = TVSeriesAppTests;
+			packageProductDependencies = (
+			);
+			productName = TVSeriesAppTests;
+			productReference = DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		65C487EC1D528FA575077F41 /* TVSeriesApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2AFB891C4F7EDC58BD567CC /* Build configuration list for PBXNativeTarget "TVSeriesApp" */;
@@ -148,8 +229,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				906CD8E6E65900E0EC012089 /* PBXTargetDependency */,
-				328A6AC1FCA1A46ECC266664 /* PBXTargetDependency */,
+				EABBEB676738C9AF7DC2C522 /* PBXTargetDependency */,
+				EA7BFA2893C1FC316E281893 /* PBXTargetDependency */,
 			);
 			name = TVSeriesApp;
 			packageProductDependencies = (
@@ -158,39 +239,24 @@
 			productReference = 56C116AB672407890BF5FE03 /* TVSeriesApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		99B322EBBC7117A886420A18 /* UI */ = {
+		D6964AA8EA33838D8EDD6531 /* TVSeriesCI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B9699643290F8F97222A8A3E /* Build configuration list for PBXNativeTarget "UI" */;
+			buildConfigurationList = F2540FFD0EC082B32DCA84BB /* Build configuration list for PBXNativeTarget "TVSeriesCI" */;
 			buildPhases = (
-				42805A8D8DAC38B102483A17 /* Sources */,
+				71E0B4C9F8DEF254E378BFEC /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				578FFACFC1B10954E75FE8C9 /* PBXTargetDependency */,
+				8116812C6507B8726B52F1EC /* PBXTargetDependency */,
 			);
-			name = UI;
+			name = TVSeriesCI;
 			packageProductDependencies = (
 			);
-			productName = UI;
-			productReference = 4FE7099810AB3B4DB7A821CE /* UI.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		D1F064E53FB86A5CD5EFBE43 /* Network */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 731ADA16CE44596F447C7CF1 /* Build configuration list for PBXNativeTarget "Network" */;
-			buildPhases = (
-				83BE721BE610C8B0E2841ED4 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Network;
-			packageProductDependencies = (
-			);
-			productName = Network;
-			productReference = CEFF6EA9433AC55B7C98EDF3 /* Network.framework */;
-			productType = "com.apple.product-type.framework";
+			productName = TVSeriesCI;
+			productReference = A147B8F99966567073A6CC7D /* TVSeriesCI.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -215,29 +281,61 @@
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 54;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 29FADEBE1205C7CBF400D97D /* Products */;
+					ProjectRef = FF0DB3DE9FAA6ABDCFCE6722 /* Networking */;
+				},
+				{
+					ProductGroup = 7D094D21E69ECAE240A1A44B /* Products */;
+					ProjectRef = B8932609957E883EF1DEBB87 /* UI */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				D1F064E53FB86A5CD5EFBE43 /* Network */,
 				65C487EC1D528FA575077F41 /* TVSeriesApp */,
-				99B322EBBC7117A886420A18 /* UI */,
+				45280A1A7667C4431A915D6C /* TVSeriesAppTests */,
+				D6964AA8EA33838D8EDD6531 /* TVSeriesCI */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		94F13871607145836BD91DF1 /* Networking.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Networking.framework;
+			remoteRef = 805EAB9CC09385136B39871A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A5A1A5BBFDFF4C9F91C5C10C /* UI.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UI.framework;
+			remoteRef = 7947153E608A43EFD9F40F6F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AA6EB023F9B610F08B211BA7 /* NetworkingTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = NetworkingTests.xctest;
+			remoteRef = F7F4E2C74903B20806BB5E43 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXSourcesBuildPhase section */
-		42805A8D8DAC38B102483A17 /* Sources */ = {
+		71E0B4C9F8DEF254E378BFEC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99C6BDFD0F44314670AFD2BD /* SeriesCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		83BE721BE610C8B0E2841ED4 /* Sources */ = {
+		C753F7EB98D35857321B8EAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90F861D265A4D6D4A1CE1210 /* TVMazeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,22 +343,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C674276B393E8201E6112383 /* SeriesListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		328A6AC1FCA1A46ECC266664 /* PBXTargetDependency */ = {
+		578FFACFC1B10954E75FE8C9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 99B322EBBC7117A886420A18 /* UI */;
-			targetProxy = 1FAA5FB02DE9F161DE76BA62 /* PBXContainerItemProxy */;
+			name = NetworkingTests;
+			targetProxy = 5192271E6C2261232CFFBB24 /* PBXContainerItemProxy */;
 		};
-		906CD8E6E65900E0EC012089 /* PBXTargetDependency */ = {
+		8116812C6507B8726B52F1EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D1F064E53FB86A5CD5EFBE43 /* Network */;
-			targetProxy = 4CA0094CCAEC784851376307 /* PBXContainerItemProxy */;
+			target = 65C487EC1D528FA575077F41 /* TVSeriesApp */;
+			targetProxy = 603A7511BAA4B3F6A628E229 /* PBXContainerItemProxy */;
+		};
+		C6C71DEDF223E9D245292045 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65C487EC1D528FA575077F41 /* TVSeriesApp */;
+			targetProxy = 83D8248FFA1C6E5A8C1D9B3B /* PBXContainerItemProxy */;
+		};
+		EA7BFA2893C1FC316E281893 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UI;
+			targetProxy = 3D3AA99A36EF93E512944DD9 /* PBXContainerItemProxy */;
+		};
+		EABBEB676738C9AF7DC2C522 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Networking;
+			targetProxy = A8095F6590249D7283ED41E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -384,71 +496,41 @@
 			};
 			name = Debug;
 		};
-		4FCEFECD6DBA514764A76C01 /* Debug */ = {
+		968A086D75FD7594975D73F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = App/Tests/CI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.UI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.TVSeriesCI;
+				PRODUCT_NAME = TVSeriesCI;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TVSeriesApp.app/TVSeriesApp";
+			};
+			name = Release;
+		};
+		B05B7821A3B958E68C58BD10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = App/Tests/CI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.TVSeriesCI;
+				PRODUCT_NAME = TVSeriesCI;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TVSeriesApp.app/TVSeriesApp";
 			};
 			name = Debug;
-		};
-		797FF30EE4B47FAFF0F165ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.Network;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
-		};
-		832940C9023BD0574BFC1AC5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.UI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-			};
-			name = Release;
 		};
 		C72832E5322589065A184DBF /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -461,30 +543,27 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.TVSeriesApp;
+				PRODUCT_NAME = TVSeriesApp;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		C7E4FE5E6F479A347A3F9A86 /* Debug */ = {
+		C79B452CF4A3DFC2421D4739 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = App/Tests/TVSeriesAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.Network;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.TVSeriesAppTests;
+				PRODUCT_NAME = TVSeriesAppTests;
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TVSeriesApp.app/TVSeriesApp";
 			};
 			name = Debug;
 		};
@@ -499,10 +578,29 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.TVSeriesApp;
+				PRODUCT_NAME = TVSeriesApp;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		F58CDD1C097EABB4EB83DAD6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = App/Tests/TVSeriesAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.matheusmartins.TVSeriesAppTests;
+				PRODUCT_NAME = TVSeriesAppTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TVSeriesApp.app/TVSeriesApp";
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -516,20 +614,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		731ADA16CE44596F447C7CF1 /* Build configuration list for PBXNativeTarget "Network" */ = {
+		9A204F7CAFE7377122860C5F /* Build configuration list for PBXNativeTarget "TVSeriesAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7E4FE5E6F479A347A3F9A86 /* Debug */,
-				797FF30EE4B47FAFF0F165ED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		B9699643290F8F97222A8A3E /* Build configuration list for PBXNativeTarget "UI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4FCEFECD6DBA514764A76C01 /* Debug */,
-				832940C9023BD0574BFC1AC5 /* Release */,
+				C79B452CF4A3DFC2421D4739 /* Debug */,
+				F58CDD1C097EABB4EB83DAD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -539,6 +628,15 @@
 			buildConfigurations = (
 				DB3B17590E3EDA679B4199A2 /* Debug */,
 				C72832E5322589065A184DBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F2540FFD0EC082B32DCA84BB /* Build configuration list for PBXNativeTarget "TVSeriesCI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B05B7821A3B958E68C58BD10 /* Debug */,
+				968A086D75FD7594975D73F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
