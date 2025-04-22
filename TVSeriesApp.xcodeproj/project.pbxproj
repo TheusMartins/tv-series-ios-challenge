@@ -90,6 +90,8 @@
 		D16321772DB85476002F84EB /* SeriesRequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesRequestInfos.swift; sourceTree = "<group>"; };
 		D16321782DB854A6002F84EB /* SeriesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListModel.swift; sourceTree = "<group>"; };
 		D16321792DB854C5002F84EB /* SeriesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListRepository.swift; sourceTree = "<group>"; };
+		D163217A2DB855E4002F84EB /* SeriesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListViewModel.swift; sourceTree = "<group>"; };
+		D163217C2DB85641002F84EB /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVSeriesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46B81FBB265CB46813425C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FF0DB3DE9FAA6ABDCFCE6722 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking; path = Modules/Networking/Networking.xcodeproj; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		7807E1361075CB1E25B71871 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				D163217B2DB85628002F84EB /* Helpers */,
 				D163216D2DB8525D002F84EB /* SeriesList */,
 			);
 			name = Features;
@@ -208,11 +211,20 @@
 		D163216D2DB8525D002F84EB /* SeriesList */ = {
 			isa = PBXGroup;
 			children = (
+				D163217A2DB855E4002F84EB /* SeriesListViewModel.swift */,
 				D16321792DB854C5002F84EB /* SeriesListRepository.swift */,
 				D16321782DB854A6002F84EB /* SeriesListModel.swift */,
 				D16321772DB85476002F84EB /* SeriesRequestInfos.swift */,
 			);
 			path = SeriesList;
+			sourceTree = "<group>";
+		};
+		D163217B2DB85628002F84EB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D163217C2DB85641002F84EB /* ViewState.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E19314FE65434D94E0AD7F06 /* Repository */ = {
