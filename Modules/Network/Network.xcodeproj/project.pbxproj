@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		06D87FCE5BB221D09E609941 /* Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 707B49C2FD103E33218BD633 /* Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9EDBE755916BA95B56607AC5 /* TVMazeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072713BCA48A7B28C985CF45 /* TVMazeService.swift */; };
+		D119DF1B2DB8283200F08B50 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119DF1A2DB8282900F08B50 /* HTTPMethod.swift */; };
+		D119DF1D2DB8284A00F08B50 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119DF1C2DB8284600F08B50 /* RequestError.swift */; };
+		D119DF1F2DB8285C00F08B50 /* RequestSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119DF1E2DB8285B00F08B50 /* RequestSuccessResponse.swift */; };
 		DF9F1F4A56ED25C90170C45B /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707B49C2FD103E33218BD633 /* Network.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,8 +39,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		072713BCA48A7B28C985CF45 /* TVMazeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeService.swift; sourceTree = "<group>"; };
 		707B49C2FD103E33218BD633 /* Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D119DF1A2DB8282900F08B50 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		D119DF1C2DB8284600F08B50 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		D119DF1E2DB8285B00F08B50 /* RequestSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSuccessResponse.swift; sourceTree = "<group>"; };
 		F41BD618F19CEE10F0289308 /* NetworkTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,9 +86,19 @@
 		C02F1D19489BB8B379679400 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				072713BCA48A7B28C985CF45 /* TVMazeService.swift */,
+				D119DF192DB8282300F08B50 /* Core */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		D119DF192DB8282300F08B50 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D119DF1E2DB8285B00F08B50 /* RequestSuccessResponse.swift */,
+				D119DF1C2DB8284600F08B50 /* RequestError.swift */,
+				D119DF1A2DB8282900F08B50 /* HTTPMethod.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +149,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = EB691E6AAD04B88F092CB587 /* Build configuration list for PBXProject "Network" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -148,7 +160,6 @@
 			);
 			mainGroup = 45136B8DDE2D542E43FEAB3B;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 54;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -163,7 +174,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EDBE755916BA95B56607AC5 /* TVMazeService.swift in Sources */,
+				D119DF1D2DB8284A00F08B50 /* RequestError.swift in Sources */,
+				D119DF1F2DB8285C00F08B50 /* RequestSuccessResponse.swift in Sources */,
+				D119DF1B2DB8283200F08B50 /* HTTPMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
