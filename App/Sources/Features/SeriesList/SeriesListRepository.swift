@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Network
+import Networking
 
 protocol SeriesListRepository {
     func getSeriesList(page: Int) async throws -> [SeriesListModel]
@@ -26,7 +26,7 @@ final class SeriesListRepositoryImplementation: SeriesListRepository {
     // MARK: - Open methods
 
     func getSeriesList(page: Int) async throws -> [SeriesListModel] {
-        let response = try await requester.request(basedOn: SeriesListRequest.getSeriesList)
+        let response = try await requester.request(basedOn: SeriesRequestInfos.getAll(page: page))
         return try await parseSeriesListResponse(response: response)
     }
 

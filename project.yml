@@ -26,9 +26,6 @@ targets:
       - path: App/Sources
         name: App
         group: App
-      - path: App/Sources/Features
-        name: Features
-        group: App/Features
     info:
       path: App/Info.plist
     dependencies:

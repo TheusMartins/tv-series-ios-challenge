@@ -19,7 +19,7 @@ extension SeriesRequestInfos: RequestInfos {
         }
     }
     
-    var method: Network.HTTPMethod {
+    var method: Networking.HTTPMethod {
         .get
     }
 
