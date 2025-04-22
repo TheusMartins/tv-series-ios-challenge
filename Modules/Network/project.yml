@@ -1,0 +1,26 @@
+name: Network
+options:
+  bundleIdPrefix: com.matheusmartins
+  deploymentTarget:
+    iOS: '15.0'
+
+targets:
+  Network:
+    type: framework
+    platform: iOS
+    sources:
+      - path: Sources
+    info:
+      path: Info.plist
+    settings:
+      base:
+        PRODUCT_NAME: Network
+        SWIFT_VERSION: 5.0
+
+  NetworkTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: Network
