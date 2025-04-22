@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 63;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,13 +63,6 @@
 			remoteGlobalIDString = 1E63DC1CCC5B22B03E06E966;
 			remoteInfo = Networking;
 		};
-		F7F4E2C74903B20806BB5E43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FF0DB3DE9FAA6ABDCFCE6722 /* Networking */;
-			proxyType = 2;
-			remoteGlobalIDString = C28CA6C82EF4E4680A851764;
-			remoteInfo = NetworkingTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,11 +81,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		56C116AB672407890BF5FE03 /* TVSeriesApp.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TVSeriesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E88BB48C9941D252F9B2D08 /* MovesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovesRepository.swift; sourceTree = "<group>"; };
+		56C116AB672407890BF5FE03 /* TVSeriesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVSeriesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7447037F153AC5BC2E6813FC /* MoveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveModel.swift; sourceTree = "<group>"; };
 		7D67B62EC6233D371904D2BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		A147B8F99966567073A6CC7D /* TVSeriesCI.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TVSeriesCI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A147B8F99966567073A6CC7D /* TVSeriesCI.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVSeriesCI.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8932609957E883EF1DEBB87 /* UI */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UI; path = Modules/UI/UI.xcodeproj; sourceTree = "<group>"; };
-		DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TVSeriesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16321772DB85476002F84EB /* SeriesRequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesRequestInfos.swift; sourceTree = "<group>"; };
+		D16321782DB854A6002F84EB /* SeriesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListModel.swift; sourceTree = "<group>"; };
+		D16321792DB854C5002F84EB /* SeriesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListRepository.swift; sourceTree = "<group>"; };
+		DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TVSeriesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46B81FBB265CB46813425C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FF0DB3DE9FAA6ABDCFCE6722 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking; path = Modules/Networking/Networking.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15CAD98719FA33A7995FA978 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BEC208ACA281F06F0BBA13D8 /* SeriesList */,
+			);
+			name = Features;
+			path = Sources/Features;
+			sourceTree = "<group>";
+		};
 		26058C9BEA5DB8ABD295C6B2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,9 +131,41 @@
 			isa = PBXGroup;
 			children = (
 				94F13871607145836BD91DF1 /* Networking.framework */,
-				AA6EB023F9B610F08B211BA7 /* NetworkingTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5F5E476C90AA3C2319C25687 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7807E1361075CB1E25B71871 /* Features */,
+				774F1453E7284915A0E7A068 /* Sources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		67262296866796770A90A080 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7447037F153AC5BC2E6813FC /* MoveModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		774F1453E7284915A0E7A068 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				15CAD98719FA33A7995FA978 /* Features */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7807E1361075CB1E25B71871 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D163216D2DB8525D002F84EB /* SeriesList */,
+			);
+			name = Features;
 			sourceTree = "<group>";
 		};
 		7D094D21E69ECAE240A1A44B /* Products */ = {
@@ -146,23 +185,42 @@
 			name = Projects;
 			sourceTree = "<group>";
 		};
-		AA142479D82348938C2E23D7 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Sources;
-			path = App/Sources;
-			sourceTree = "<group>";
-		};
 		AF7FEA49D904B974FEE2BC1B = {
 			isa = PBXGroup;
 			children = (
+				5F5E476C90AA3C2319C25687 /* App */,
 				E6CE736715F28DC540556591 /* CI */,
-				AA142479D82348938C2E23D7 /* Sources */,
 				FBBC079E30DD87D80B2A6AA9 /* TVSeriesAppTests */,
 				26058C9BEA5DB8ABD295C6B2 /* Products */,
 				A0F61AA83FEBCCAA4A4A061A /* Projects */,
 			);
+			sourceTree = "<group>";
+		};
+		BEC208ACA281F06F0BBA13D8 /* SeriesList */ = {
+			isa = PBXGroup;
+			children = (
+				67262296866796770A90A080 /* Model */,
+				E19314FE65434D94E0AD7F06 /* Repository */,
+			);
+			path = SeriesList;
+			sourceTree = "<group>";
+		};
+		D163216D2DB8525D002F84EB /* SeriesList */ = {
+			isa = PBXGroup;
+			children = (
+				D16321792DB854C5002F84EB /* SeriesListRepository.swift */,
+				D16321782DB854A6002F84EB /* SeriesListModel.swift */,
+				D16321772DB85476002F84EB /* SeriesRequestInfos.swift */,
+			);
+			path = SeriesList;
+			sourceTree = "<group>";
+		};
+		E19314FE65434D94E0AD7F06 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				0E88BB48C9941D252F9B2D08 /* MovesRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		E6CE736715F28DC540556591 /* CI */ = {
@@ -181,20 +239,6 @@
 			);
 			name = TVSeriesAppTests;
 			path = App/Tests/TVSeriesAppTests;
-			sourceTree = "<group>";
-		};
-		"TEMP_50B8A568-E07B-4829-8B2C-B82D88F0288D" /* Features */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
-		"TEMP_9B5E60B5-4707-4FA4-8F9C-78AF22CC3989" /* App */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,8 +310,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
-				TargetAttributes = {
-				};
 			};
 			buildConfigurationList = 32F321AE8CEA0BD8756939BB /* Build configuration list for PBXProject "TVSeriesApp" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -279,7 +321,6 @@
 			);
 			mainGroup = AF7FEA49D904B974FEE2BC1B;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 54;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -313,13 +354,6 @@
 			fileType = wrapper.framework;
 			path = UI.framework;
 			remoteRef = 7947153E608A43EFD9F40F6F /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AA6EB023F9B610F08B211BA7 /* NetworkingTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = NetworkingTests.xctest;
-			remoteRef = F7F4E2C74903B20806BB5E43 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
