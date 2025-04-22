@@ -13,6 +13,7 @@
 		D119DF1F2DB8285C00F08B50 /* RequestSuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119DF1E2DB8285B00F08B50 /* RequestSuccessResponse.swift */; };
 		D119DF222DB828C900F08B50 /* RequestInfos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119DF212DB828C700F08B50 /* RequestInfos.swift */; };
 		D119DF242DB828E600F08B50 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119DF232DB828E300F08B50 /* Requester.swift */; };
+		D119DF272DB8297000F08B50 /* DefaultRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = D119DF262DB8296B00F08B50 /* DefaultRequester.swift */; };
 		DF9F1F4A56ED25C90170C45B /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707B49C2FD103E33218BD633 /* Network.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		D119DF1E2DB8285B00F08B50 /* RequestSuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSuccessResponse.swift; sourceTree = "<group>"; };
 		D119DF212DB828C700F08B50 /* RequestInfos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestInfos.swift; sourceTree = "<group>"; };
 		D119DF232DB828E300F08B50 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
+		D119DF262DB8296B00F08B50 /* DefaultRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRequester.swift; sourceTree = "<group>"; };
 		F41BD618F19CEE10F0289308 /* NetworkTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = NetworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 		C02F1D19489BB8B379679400 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D119DF252DB8296000F08B50 /* Implementations */,
 				D119DF202DB828B800F08B50 /* Protocols */,
 				D119DF192DB8282300F08B50 /* Core */,
 			);
@@ -113,6 +116,14 @@
 				D119DF212DB828C700F08B50 /* RequestInfos.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D119DF252DB8296000F08B50 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				D119DF262DB8296B00F08B50 /* DefaultRequester.swift */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D119DF272DB8297000F08B50 /* DefaultRequester.swift in Sources */,
 				D119DF1D2DB8284A00F08B50 /* RequestError.swift in Sources */,
 				D119DF222DB828C900F08B50 /* RequestInfos.swift in Sources */,
 				D119DF1F2DB8285C00F08B50 /* RequestSuccessResponse.swift in Sources */,
