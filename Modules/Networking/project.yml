@@ -1,11 +1,11 @@
-name: Network
+name: Networking
 options:
   bundleIdPrefix: com.matheusmartins
   deploymentTarget:
     iOS: '15.0'
 
 targets:
-  Network:
+  Networking:
     type: framework
     platform: iOS
     sources:
@@ -14,13 +14,18 @@ targets:
       path: Info.plist
     settings:
       base:
-        PRODUCT_NAME: Network
+        PRODUCT_NAME: Networking
         SWIFT_VERSION: 5.0
 
-  NetworkTests:
+  NetworkingTests:
     type: bundle.unit-test
     platform: iOS
     sources:
       - path: Tests
     dependencies:
-      - target: Network
+      - target: Networking
+    info:
+      path: Tests/Info.plist
+    settings:
+      base:
+        PRODUCT_NAME: NetworkingTests
