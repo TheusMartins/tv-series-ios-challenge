@@ -19,6 +19,7 @@
 		A290E08C319560A65F657FCA /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E90A60D9AE4DF5715B89E5 /* ViewState.swift */; };
 		AE419246324FBB33BCA03AC1 /* UI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5A1A5BBFDFF4C9F91C5C10C /* UI.framework */; };
 		D15F47262DB8F9200054A831 /* TVSeriesCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15F47222DB8F91F0054A831 /* TVSeriesCellView.swift */; };
+		D15F47282DB906700054A831 /* SeriesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15F47272DB904B50054A831 /* SeriesListViewModelTests.swift */; };
 		DBEDCEF6BAD80CFEF834A8BD /* SeriesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54238EB527F9E420BEEFABF4 /* SeriesListModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		B8932609957E883EF1DEBB87 /* UI */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UI; path = Modules/UI/UI.xcodeproj; sourceTree = "<group>"; };
 		CAEE7BF7D04A74D22BDA370C /* SeriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListView.swift; sourceTree = "<group>"; };
 		D15F47222DB8F91F0054A831 /* TVSeriesCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVSeriesCellView.swift; sourceTree = "<group>"; };
+		D15F47272DB904B50054A831 /* SeriesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListViewModelTests.swift; sourceTree = "<group>"; };
 		DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TVSeriesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D9E9E92534A1899E0E77B /* SeriesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListRepository.swift; sourceTree = "<group>"; };
 		F46B81FBB265CB46813425C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -215,6 +217,22 @@
 			);
 			sourceTree = "<group>";
 		};
+		D15F47292DB906EC0054A831 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				D15F472C2DB907010054A831 /* SeriesList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		D15F472C2DB907010054A831 /* SeriesList */ = {
+			isa = PBXGroup;
+			children = (
+				D15F47272DB904B50054A831 /* SeriesListViewModelTests.swift */,
+			);
+			path = SeriesList;
+			sourceTree = "<group>";
+		};
 		E6CE736715F28DC540556591 /* CI */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +245,7 @@
 		FBBC079E30DD87D80B2A6AA9 /* TVSeriesAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				D15F47292DB906EC0054A831 /* Features */,
 				F46B81FBB265CB46813425C3 /* Info.plist */,
 			);
 			name = TVSeriesAppTests;
@@ -362,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D15F47282DB906700054A831 /* SeriesListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
