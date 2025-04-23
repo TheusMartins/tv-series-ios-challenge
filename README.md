@@ -29,19 +29,7 @@ git clone https://github.com/TheusMartins/tv-series-ios-challenge.git
 cd tv-series-ios-challenge
 ```
 
-2. Install [XcodeGen](https://github.com/yonaskolb/XcodeGen):
-
-```bash
-brew install xcodegen
-```
-
-3. Generate the Xcode project:
-
-```bash
-xcodegen
-```
-
-4. Open and run:
+2. Open and run:
 
 ```bash
 open TVSeriesApp.xcodeproj
