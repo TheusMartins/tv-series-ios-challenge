@@ -14,19 +14,22 @@ struct SeriesListView: View {
     init() {}
 
     var body: some View {
-        ZStack {
-            Color.white
-                .ignoresSafeArea()
+        NavigationView {
+            ZStack {
+                Color.white
+                    .ignoresSafeArea()
 
-            VStack(spacing: 16) {
-                TVText("Shows", color: .primary)
-                    .font(.system(size: 28, weight: .bold))
-                    .foregroundColor(.primary)
-                    .padding(.top, 24)
+                VStack(spacing: 16) {
+                    TVText("Shows", color: .primary)
+                        .font(.system(size: 28, weight: .bold))
+                        .foregroundColor(.primary)
+                        .padding(.top, 24)
 
-                content
+                    content
+                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
+            .navigationBarHidden(true)
         }
         .onAppear {
             Task {
@@ -46,11 +49,14 @@ struct SeriesListView: View {
             ScrollView {
                 LazyVStack(spacing: 16) {
                     ForEach(series, id: \.id) { item in
-                        TVSeriesCellView(
-                            title: item.name,
-                            summary: item.summary,
-                            imageURL: item.image?.original
-                        )
+                        NavigationLink(destination: SeriesDetailsView(seriesID: item.id)) {
+                            TVSeriesCellView(
+                                title: item.name,
+                                summary: item.summary,
+                                imageURL: item.image?.original
+                            )
+                        }
+                        .buttonStyle(PlainButtonStyle())
                         .onAppear {
                             Task {
                                 await viewModel.fetchNextPageIfNeeded(currentItem: item)
@@ -58,7 +64,6 @@ struct SeriesListView: View {
                         }
                     }
 
-                    // Optional loader at the bottom
                     if viewModel.isFetching {
                         ProgressView()
                             .padding()

@@ -25,7 +25,7 @@ struct TVSeriesCellView: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
+                        .aspectRatio(contentMode: .fit)
                 case .failure:
                     Color.gray
                 @unknown default:

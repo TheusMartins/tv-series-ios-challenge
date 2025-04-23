@@ -9,7 +9,11 @@ import SwiftUI
 import UI
 
 struct SeriesDetailsView: View {
-    @StateObject private var viewModel = SeriesDetailsViewModel(seriesID: 0)
+    @StateObject private var viewModel: SeriesDetailsViewModel
+
+    init(seriesID: Int) {
+        _viewModel = StateObject(wrappedValue: SeriesDetailsViewModel(seriesID: seriesID))
+    }
 
     var body: some View {
         ZStack {
@@ -44,6 +48,7 @@ struct SeriesDetailsView: View {
                 uiModel: model,
                 availableSeasons: viewModel.availableSeasons,
                 selectedSeason: viewModel.selectedSeason,
+                episodes: viewModel.filteredEpisodes,
                 onSeasonSelected: viewModel.selectSeason
             )
         }

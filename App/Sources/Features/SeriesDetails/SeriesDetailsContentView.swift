@@ -12,6 +12,7 @@ struct SeriesDetailsContentView: View {
     let uiModel: SeriesDetailsUIModel
     let availableSeasons: [Int]
     let selectedSeason: Int?
+    let episodes: [EpisodeModel]
     let onSeasonSelected: (Int) -> Void
 
     var body: some View {
@@ -42,7 +43,7 @@ struct SeriesDetailsContentView: View {
                     .font(.title)
                     .foregroundColor(.primary)
 
-                if let summary = uiModel.series.summary?.htmlStripped {
+                if let summary = uiModel.series.summary {
                     TVText(summary)
                         .font(.body)
                         .foregroundColor(.secondary)
@@ -66,12 +67,12 @@ struct SeriesDetailsContentView: View {
                     }
 
                     LazyVStack(alignment: .leading, spacing: 12) {
-                        ForEach(uiModel.episodes ?? [], id: \.id) { episode in
+                        ForEach(episodes, id: \.id) { episode in
                             VStack(alignment: .leading, spacing: 4) {
                                 TVText(episode.name)
                                     .font(.subheadline)
 
-                                if let summary = episode.summary?.htmlStripped {
+                                if let summary = episode.summary {
                                     TVText(summary)
                                         .font(.footnote)
                                         .foregroundColor(.secondary)

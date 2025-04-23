@@ -9,22 +9,15 @@ import Foundation
 
 extension String {
     var htmlStripped: String {
-        guard let data = self.data(using: .utf8) else {
-            return self
-        }
-
-        do {
-            let attributed = try NSAttributedString(
-                data: data,
-                options: [
-                    .documentType: NSAttributedString.DocumentType.html,
-                    .characterEncoding: String.Encoding.utf8.rawValue
-                ],
-                documentAttributes: nil
-            )
-            return attributed.string
-        } catch {
-            return self
+        guard let data = self.data(using: .utf8) else { return self }
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ]
+        if let attributedString = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
+            return attributedString.string
+        } else {
+            return self // fallback if HTML parsing fails
         }
     }
 }

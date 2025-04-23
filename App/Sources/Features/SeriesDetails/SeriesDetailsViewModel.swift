@@ -14,22 +14,13 @@ final class SeriesDetailsViewModel: ObservableObject {
     // MARK: - Published properties
 
     @Published var state: ViewState<SeriesDetailsUIModel> = .idle
-    @Published var selectedSeason: Int?
-
-    // MARK: - Computed properties
-
-    var availableSeasons: [Int] {
-        guard case .success(let model) = state,
-              let episodes = model.episodes else { return [] }
-        let seasons = Set(episodes.map { $0.season })
-        return seasons.sorted()
+    @Published var selectedSeason: Int? {
+        didSet {
+            updateFilteredEpisodes()
+        }
     }
-
-    var filteredEpisodes: [EpisodeModel] {
-        guard case .success(let model) = state,
-              let selected = selectedSeason else { return [] }
-        return model.episodes?.filter { $0.season == selected } ?? []
-    }
+    @Published private(set) var availableSeasons: [Int] = []
+    @Published private(set) var filteredEpisodes: [EpisodeModel] = []
 
     // MARK: - Private properties
 
@@ -61,11 +52,18 @@ final class SeriesDetailsViewModel: ObservableObject {
                 let episodes = try await repository.getSeriesEpisodes(id: seriesID)
                 print("🐛 Banana: Fetched \(episodes.count) episodes")
 
+                let seasons = Set(episodes.map { $0.season }).sorted()
+                availableSeasons = seasons
+                selectedSeason = seasons.first
+
                 state = .success(SeriesDetailsUIModel(series: details, episodes: episodes))
-                selectedSeason = episodes.first?.season
+                updateFilteredEpisodes()
+
             } else {
                 print("🐛 Banana: Series is a movie. No episodes to fetch.")
                 state = .success(SeriesDetailsUIModel(series: details, episodes: nil))
+                availableSeasons = []
+                filteredEpisodes = []
             }
 
         } catch {
@@ -76,6 +74,19 @@ final class SeriesDetailsViewModel: ObservableObject {
 
     func selectSeason(_ season: Int) {
         selectedSeason = season
+    }
+
+    // MARK: - Private methods
+
+    private func updateFilteredEpisodes() {
+        guard case .success(let model) = state,
+              let episodes = model.episodes,
+              let selected = selectedSeason else {
+            filteredEpisodes = []
+            return
+        }
+
+        filteredEpisodes = episodes.filter { $0.season == selected }
     }
 }
 
