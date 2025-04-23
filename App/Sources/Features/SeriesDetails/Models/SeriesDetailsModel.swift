@@ -13,6 +13,7 @@ struct SeriesDetailsModel: Decodable {
     let summary: String?
     let genres: [String]?
     let image: ImageData?
+    let type: String? 
 
     struct ImageData: Decodable {
         let medium: String?
