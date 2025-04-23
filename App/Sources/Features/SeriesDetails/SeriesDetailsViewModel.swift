@@ -14,6 +14,22 @@ final class SeriesDetailsViewModel: ObservableObject {
     // MARK: - Published properties
 
     @Published var state: ViewState<SeriesDetailsUIModel> = .idle
+    @Published var selectedSeason: Int?
+
+    // MARK: - Computed properties
+
+    var availableSeasons: [Int] {
+        guard case .success(let model) = state,
+              let episodes = model.episodes else { return [] }
+        let seasons = Set(episodes.map { $0.season })
+        return seasons.sorted()
+    }
+
+    var filteredEpisodes: [EpisodeModel] {
+        guard case .success(let model) = state,
+              let selected = selectedSeason else { return [] }
+        return model.episodes?.filter { $0.season == selected } ?? []
+    }
 
     // MARK: - Private properties
 
@@ -46,6 +62,7 @@ final class SeriesDetailsViewModel: ObservableObject {
                 print("🐛 Banana: Fetched \(episodes.count) episodes")
 
                 state = .success(SeriesDetailsUIModel(series: details, episodes: episodes))
+                selectedSeason = episodes.first?.season
             } else {
                 print("🐛 Banana: Series is a movie. No episodes to fetch.")
                 state = .success(SeriesDetailsUIModel(series: details, episodes: nil))
@@ -55,6 +72,10 @@ final class SeriesDetailsViewModel: ObservableObject {
             print("🐛 Banana: Failed to fetch details or episodes: \(error)")
             state = .error("Failed to load details.")
         }
+    }
+
+    func selectSeason(_ season: Int) {
+        selectedSeason = season
     }
 }
 
