@@ -33,6 +33,7 @@
 		D134DE262DB91C8900667F37 /* SeriesDetailsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134DE252DB91C8800667F37 /* SeriesDetailsContentView.swift */; };
 		D134DE282DB91CFC00667F37 /* SeriesDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134DE272DB91CF700667F37 /* SeriesDetailsView.swift */; };
 		D134DE2B2DB934DA00667F37 /* SeriesDetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D134DE2A2DB934D900667F37 /* SeriesDetailsViewModelTests.swift */; };
+		D174BB002DB98A56000A5894 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D174BAF92DB98A53000A5894 /* SearchBar.swift */; };
 		D2B1106F60E7A477C2EE3B22 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F13871607145836BD91DF1 /* Networking.framework */; };
 		DBEDCEF6BAD80CFEF834A8BD /* SeriesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54238EB527F9E420BEEFABF4 /* SeriesListModel.swift */; };
 		F10EBFAA784F0ECBD7916D92 /* RequesterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4023AFB4D9497FAD363A1 /* RequesterTests.swift */; };
@@ -168,6 +169,7 @@
 		D134DE252DB91C8800667F37 /* SeriesDetailsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailsContentView.swift; sourceTree = "<group>"; };
 		D134DE272DB91CF700667F37 /* SeriesDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailsView.swift; sourceTree = "<group>"; };
 		D134DE2A2DB934D900667F37 /* SeriesDetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesDetailsViewModelTests.swift; sourceTree = "<group>"; };
+		D174BAF92DB98A53000A5894 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		DE55BDC212CC4C9E315EBF7B /* TVSeriesAppTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = TVSeriesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D9E9E92534A1899E0E77B /* SeriesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesListRepository.swift; sourceTree = "<group>"; };
 		F46B81FBB265CB46813425C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		5ED9A5E9391050BC06B08A03 /* SeriesList */ = {
 			isa = PBXGroup;
 			children = (
+				D174BAF92DB98A53000A5894 /* SearchBar.swift */,
 				54238EB527F9E420BEEFABF4 /* SeriesListModel.swift */,
 				EA0D9E9E92534A1899E0E77B /* SeriesListRepository.swift */,
 				CAEE7BF7D04A74D22BDA370C /* SeriesListView.swift */,
@@ -581,6 +584,7 @@
 				4451C51715DE317693E08299 /* TVSeriesCellView.swift in Sources */,
 				A290E08C319560A65F657FCA /* ViewState.swift in Sources */,
 				D134DE282DB91CFC00667F37 /* SeriesDetailsView.swift in Sources */,
+				D174BB002DB98A56000A5894 /* SearchBar.swift in Sources */,
 				D134DE262DB91C8900667F37 /* SeriesDetailsContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,8 @@ final class SeriesListViewModel: ObservableObject {
     // MARK: - Published properties
 
     @Published var state: ViewState<[SeriesListModel]> = .idle
+    @Published var searchText: String = ""
+    @Published var isSearching: Bool = false
 
     // MARK: - Private properties
 
@@ -35,12 +37,14 @@ final class SeriesListViewModel: ObservableObject {
         state = .loading
         currentPage = 1
         hasMorePages = true
+        searchText = ""
         await fetchSeries()
     }
 
     func fetchNextPageIfNeeded(currentItem: SeriesListModel) async {
         guard hasMorePages,
               !isFetching,
+              !isSearching,
               case .success(let items) = state,
               let thresholdIndex = items.index(items.endIndex, offsetBy: -5, limitedBy: items.startIndex),
               items[thresholdIndex].id == currentItem.id else {
@@ -49,6 +53,25 @@ final class SeriesListViewModel: ObservableObject {
 
         currentPage += 1
         await fetchSeries()
+    }
+    
+    func searchSeries() async {
+        guard !searchText.isEmpty else {
+            await fetchInitialSeries()
+            return
+        }
+
+        isSearching = true
+        state = .loading
+
+        do {
+            let results = try await repository.searchSeries(by: searchText)
+            state = .success(results)
+        } catch {
+            state = .error("Failed to search series.")
+        }
+
+        isSearching = false
     }
 
     // MARK: - Private methods

@@ -10,6 +10,7 @@ import Networking
 
 protocol SeriesListRepository {
     func getSeriesList(page: Int) async throws -> [SeriesListModel]
+    func searchSeries(by name: String) async throws -> [SeriesListModel]
 }
 
 final class SeriesListRepositoryImplementation: SeriesListRepository {
@@ -29,6 +30,11 @@ final class SeriesListRepositoryImplementation: SeriesListRepository {
         let response = try await requester.request(basedOn: SeriesRequestInfos.getAll(page: page))
         return try await parseSeriesListResponse(response: response)
     }
+    
+    func searchSeries(by name: String) async throws -> [SeriesListModel] {
+        let response = try await requester.request(basedOn: SeriesRequestInfos.search(query: name))
+        return try await parseSearchResponse(response: response)
+    }
 
     // MARK: - Private methods
 
@@ -36,6 +42,15 @@ final class SeriesListRepositoryImplementation: SeriesListRepository {
         do {
             let model = try JSONDecoder().decode([SeriesListModel].self, from: response.data)
             return model
+        } catch {
+            throw error
+        }
+    }
+    
+    private func parseSearchResponse(response: RequestSuccessResponse) async throws -> [SeriesListModel] {
+        do {
+            let results = try JSONDecoder().decode([SearchResult].self, from: response.data)
+            return results.map(\.show)
         } catch {
             throw error
         }

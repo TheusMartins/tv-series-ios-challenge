@@ -7,9 +7,11 @@
 
 import SwiftUI
 import UI
+import Combine
 
 struct SeriesListView: View {
     @StateObject private var viewModel = SeriesListViewModel()
+    @State private var searchDebounce: AnyCancellable?
 
     init() {}
 
@@ -19,6 +21,7 @@ struct SeriesListView: View {
                 AppTheme.shared.colors.background.ignoresSafeArea()
 
                 VStack(spacing: .listVStackSpacing) {
+                    SearchBar(text: $viewModel.searchText)
                     content
                 }
                 .padding(.horizontal)
@@ -27,6 +30,16 @@ struct SeriesListView: View {
             .navigationBarTitleDisplayMode(.large)
         }
         .accentColor(AppTheme.shared.colors.accent)
+        .onChange(of: viewModel.searchText) { newValue in
+            searchDebounce?.cancel()
+            searchDebounce = Just(newValue)
+                .delay(for: .milliseconds(500), scheduler: RunLoop.main)
+                .sink { value in
+                    Task {
+                        await viewModel.searchSeries()
+                    }
+                }
+        }
         .onAppear {
             Task {
                 await viewModel.fetchInitialSeries()
