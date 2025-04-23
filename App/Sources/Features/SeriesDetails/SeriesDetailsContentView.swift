@@ -16,30 +16,30 @@ struct SeriesDetailsContentView: View {
     let onSeasonSelected: (Int) -> Void
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: .detailsVStackSpacing) {
                 if let imageURL = uiModel.series.image?.original,
                    let url = URL(string: imageURL) {
                     AsyncImage(url: url) { phase in
                         switch phase {
                         case .empty:
                             ProgressView()
-                                .frame(height: 200)
+                                .frame(height: .detailsImageHeight)
                                 .frame(maxWidth: .infinity)
 
                         case .success(let image):
                             image
                                 .resizable()
                                 .scaledToFit()
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                                .frame(height: 200)
+                                .clipShape(RoundedRectangle(cornerRadius: .detailsHStackSpacing))
+                                .frame(height: .detailsImageHeight)
                                 .frame(maxWidth: .infinity)
 
                         case .failure:
                             Color.gray
-                                .frame(height: 200)
+                                .frame(height: .detailsImageHeight)
                                 .frame(maxWidth: .infinity)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                                .clipShape(RoundedRectangle(cornerRadius: .detailsHStackSpacing))
 
                         @unknown default:
                             EmptyView()
@@ -69,20 +69,31 @@ struct SeriesDetailsContentView: View {
                         }
                     }
 
-                    LazyVStack(alignment: .leading, spacing: 12) {
+                    LazyVStack(alignment: .leading, spacing: .detailsLazyVStackSpacing) {
                         ForEach(episodes, id: \.id) { episode in
-                            VStack(alignment: .leading, spacing: 4) {
+                            VStack(alignment: .leading, spacing: .detailsEpisodeVPadding) {
                                 TVText(episode.name, font: .subheadline, color: .primary)
 
                                 if let summary = episode.summary?.strippedHTMLTags {
                                     TVText(summary, font: .body, color: .secondary)
                                 }
                             }
-                            .padding(.vertical, 4)
+                            .padding(.vertical, .detailsEpisodeVPadding)
                         }
                     }
                 }
             }
         }
     }
+}
+
+// MARK: - Layout Constants
+
+private extension CGFloat {
+    static let detailsImageHeight: CGFloat = 200
+    static let detailsCornerRadius: CGFloat = 8
+    static let detailsVStackSpacing: CGFloat = 16
+    static let detailsHStackSpacing: CGFloat = 8
+    static let detailsLazyVStackSpacing: CGFloat = 12
+    static let detailsEpisodeVPadding: CGFloat = 4
 }

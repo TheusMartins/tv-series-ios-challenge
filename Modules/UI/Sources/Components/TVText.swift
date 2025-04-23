@@ -12,7 +12,7 @@ public struct TVText: View {
     private let font: Font
     private let color: Color
 
-    public init(_ content: String, font: Font = .headline, color: Color = TVColors.primary) {
+    public init(_ content: String, font: Font = .headline, color: Color = AppTheme.shared.colors.primaryText) {
         self.content = content
         self.font = font
         self.color = color

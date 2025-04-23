@@ -14,14 +14,14 @@ struct TVSeriesCellView: View {
     let imageURL: String?
 
     var body: some View {
-        HStack(alignment: .top, spacing: 16) {
+        HStack(alignment: .top, spacing: .cellPadding) {
             AsyncImage(url: URL(string: imageURL ?? "")) { phase in
                 switch phase {
                 case .empty:
                     ProgressView()
-                        .frame(width: 80, height: 80)
-                        .background(Color(white: 0.95))
-                        .cornerRadius(8)
+                        .frame(width: .cellImageSize, height: .cellImageSize)
+                        .background(Color.cellImagePlaceholder)
+                        .cornerRadius(.cellImagePlaceholderCornerRadius)
                 case .success(let image):
                     image
                         .resizable()
@@ -32,11 +32,11 @@ struct TVSeriesCellView: View {
                     EmptyView()
                 }
             }
-            .frame(width: 80, height: 80)
-            .cornerRadius(10)
+            .frame(width: .cellImageSize, height: .cellImageSize)
+            .cornerRadius(.cellImageCornerRadius)
             .clipped()
 
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: .cellVStackSpacing) {
                 TVText(title, color: .primary)
                     .font(.headline)
 
@@ -45,16 +45,42 @@ struct TVSeriesCellView: View {
                     .lineLimit(3)
             }
 
-            Spacer(minLength: 8)
+            Spacer(minLength: .cellSpacerMinLength)
 
-            Image(systemName: "chevron.right")
+            Image(systemName: .chevronIcon)
                 .renderingMode(.template)
-                .foregroundColor(TVColors.accent)
-                .padding(.top, 4)
+                .foregroundColor(AppTheme.shared.colors.accent)
+                .padding(.top, .cellChevronPaddingTop)
         }
         .padding()
-        .background(Color.white)
+        .background(AppTheme.shared.colors.background)
         .cornerRadius(12)
-        .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
+        .shadow(color: .cellShadowColor, radius: .cellShadowRadius, x: .zero, y: .cellShadowYOffset)
     }
+}
+
+// MARK: - Layout Constants
+
+private extension CGFloat {
+    static let cellImageSize: CGFloat = 80
+    static let cellImageCornerRadius: CGFloat = 10
+    static let cellImagePlaceholderCornerRadius: CGFloat = 8
+    static let cellVStackSpacing: CGFloat = 6
+    static let cellChevronPaddingTop: CGFloat = 4
+    static let cellSpacerMinLength: CGFloat = 8
+    static let cellPadding: CGFloat = 16
+    static let cellCornerRadius: CGFloat = 12
+    static let cellShadowRadius: CGFloat = 4
+    static let cellShadowYOffset: CGFloat = 2
+}
+
+// MARK: - Color Constants
+
+private extension Color {
+    static let cellImagePlaceholder = Color(white: 0.95)
+    static let cellShadowColor = Color.black.opacity(0.05)
+}
+
+private extension String {
+    static let chevronIcon = "chevron.right"
 }

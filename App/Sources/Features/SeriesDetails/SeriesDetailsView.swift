@@ -17,10 +17,9 @@ struct SeriesDetailsView: View {
 
     var body: some View {
         ZStack {
-            Color.white.ignoresSafeArea()
+            AppTheme.shared.colors.background.ignoresSafeArea()
             content.padding()
         }
-        .tint(TVColors.accent)
         .onAppear {
             Task {
                 await viewModel.fetchDetails()
@@ -32,12 +31,12 @@ struct SeriesDetailsView: View {
     private var content: some View {
         switch viewModel.state {
         case .idle, .loading:
-            ProgressView("Loading Details...")
+            ProgressView(String.loadingDetails)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
         case .error(let message):
             VStack {
-                TVText("Error")
+                TVText(.errorTitle)
                     .font(.title2)
                 TVText(message)
                     .foregroundColor(.red)
@@ -52,6 +51,15 @@ struct SeriesDetailsView: View {
                 episodes: viewModel.filteredEpisodes,
                 onSeasonSelected: viewModel.selectSeason
             )
+            .navigationTitle(model.series.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
+}
+
+// MARK: - String Constants
+
+private extension String {
+    static let loadingDetails = "Loading Details..."
+    static let errorTitle = "Error"
 }

@@ -16,22 +16,17 @@ struct SeriesListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.white
-                    .ignoresSafeArea()
+                AppTheme.shared.colors.background.ignoresSafeArea()
 
-                VStack(spacing: 16) {
-                    TVText("Shows", color: .primary)
-                        .font(.system(size: 28, weight: .bold))
-                        .foregroundColor(.primary)
-                        .padding(.top, 24)
-
+                VStack(spacing: .listVStackSpacing) {
                     content
                 }
                 .padding(.horizontal)
             }
-            .navigationBarHidden(true)
+            .navigationTitle(String.listTitle)
+            .navigationBarTitleDisplayMode(.large)
         }
-        .accentColor(TVColors.accent)
+        .accentColor(AppTheme.shared.colors.accent)
         .onAppear {
             Task {
                 await viewModel.fetchInitialSeries()
@@ -43,12 +38,12 @@ struct SeriesListView: View {
     private var content: some View {
         switch viewModel.state {
         case .idle, .loading:
-            ProgressView("Loading Shows...")
+            ProgressView(String.loadingMessage)
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
         case .success(let series):
-            ScrollView {
-                LazyVStack(spacing: 16) {
+            ScrollView(showsIndicators: false) {
+                LazyVStack(spacing: .listLazyVStackSpacing) {
                     ForEach(series, id: \.id) { item in
                         NavigationLink(destination: SeriesDetailsView(seriesID: item.id)) {
                             TVSeriesCellView(
@@ -70,18 +65,18 @@ struct SeriesListView: View {
                             .padding()
                     }
                 }
-                .padding(.bottom, 40)
+                .padding(.bottom, .listBottomPadding)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         case .error(let message):
-            VStack(spacing: 12) {
-                TVText("Oops!")
+            VStack(spacing: .listErrorSpacing) {
+                TVText(.errorTitle)
                     .font(.title2)
                 TVText(message)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.red)
-                Button("Retry") {
+                Button(String.retryButton) {
                     Task {
                         await viewModel.fetchInitialSeries()
                     }
@@ -91,4 +86,22 @@ struct SeriesListView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
     }
+}
+
+// MARK: - Layout Constants
+
+private extension CGFloat {
+    static let listVStackSpacing: CGFloat = 16
+    static let listLazyVStackSpacing: CGFloat = 16
+    static let listBottomPadding: CGFloat = 40
+    static let listErrorSpacing: CGFloat = 12
+}
+
+// MARK: - UI Strings
+
+private extension String {
+    static let listTitle = "Shows"
+    static let loadingMessage = "Loading Shows..."
+    static let errorTitle = "Oops!"
+    static let retryButton = "Retry"
 }
