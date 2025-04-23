@@ -9,6 +9,8 @@ import SwiftUI
 import UI
 
 struct SeriesDetailsContentView: View {
+    @State private var selectedEpisode: EpisodeModel?
+    
     let uiModel: SeriesDetailsUIModel
     let availableSeasons: [Int]
     let selectedSeason: Int?
@@ -77,8 +79,24 @@ struct SeriesDetailsContentView: View {
                                 if let summary = episode.summary?.strippedHTMLTags {
                                     TVText(summary, font: .body, color: .secondary)
                                 }
+                                
+                                NavigationLink(
+                                    destination: selectedEpisode.map { EpisodeDetailsView(episode: $0) },
+                                    isActive: Binding(
+                                        get: { selectedEpisode != nil },
+                                        set: { isActive in
+                                            if !isActive { selectedEpisode = nil }
+                                        }
+                                    )
+                                ) {
+                                    EmptyView()
+                                }
+                                .hidden()
                             }
                             .padding(.vertical, .detailsEpisodeVPadding)
+                            .onTapGesture {
+                                selectedEpisode = episode
+                            }
                         }
                     }
                 }
