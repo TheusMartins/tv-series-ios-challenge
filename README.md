@@ -168,4 +168,8 @@ These schemes are automatically generated via `XcodeGen`, ensuring consistency a
 
 This project was built as a personal initiative to explore advanced SwiftUI patterns and modular app architecture with `XcodeGen`. It reflects how I would approach a real-world production codebase from scratch.
 
+> ⚠️ Note: The Xcode project and Info.plist files are already configured and versioned. You can run the project immediately without using `xcodegen`.
+
+> 💡 `xcodegen` is only required if you need to regenerate the project structure. Be aware that this may override keys such as `UILaunchScreen` in `Info.plist`.
+
 Feedback is welcome!
