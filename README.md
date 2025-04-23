@@ -4,7 +4,11 @@ TVSeriesApp is a modular iOS application built entirely with SwiftUI and Combine
 
 ## 🎬 Demo
 
-![Demo Preview](Demo/DemoPreview.mp4)
+## 🎬 Demo
+
+<video src="https://github.com/TheusMartins/tv-series-ios-challenge/raw/main/Demo/DemoPreview.mp4" controls width="100%" />
+
+📂 Or [download the video directly](https://github.com/TheusMartins/tv-series-ios-challenge/raw/main/Demo/DemoPreview.mp4)
 
 *This video demonstrates navigation, infinite scroll, dark/light mode, series search, and episode navigation.*
 
