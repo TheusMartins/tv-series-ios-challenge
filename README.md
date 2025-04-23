@@ -1,11 +1,12 @@
 # 📺 TVSeriesApp
 
-TVSeriesApp is a modular iOS application built entirely with SwiftUI and Combine. It showcases a list of TV shows with detailed views per series and episode, integrating pagination, light/dark theme support, and clean architectural separation using XcodeGen.
+TVSeriesApp is a modular iOS application built entirely with SwiftUI and Combine. It showcases a list of TV shows with detailed views per series and episode, integrating pagination, search, light/dark theme support, and clean architectural separation using XcodeGen.
 
 ## 🎬 Demo
 
-https://github.com/TheusMartins/tv-series-ios-challenge/blob/main/Demo/DemoPreview.mp4  
-*This video demonstrates navigation, infinite scroll, dark/light mode, and responsive UI.*
+![Demo Preview](Demo/DemoPreview.mp4)
+
+*This video demonstrates navigation, infinite scroll, dark/light mode, series search, and episode navigation.*
 
 ## 🧱 Architecture & Approach
 
@@ -16,109 +17,17 @@ This project follows a modular structure powered by `XcodeGen`, organized as fol
 - `Modules/Networking/`: Request abstractions and endpoints
 - `Modules/UI/`: Reusable SwiftUI components (e.g. `TVText`, `TVPill`, theming system)
 
-State is handled via `@StateObject` and `@Published` properties in SwiftUI-compatible `ViewModels`. Data fetching uses Swift Concurrency (`async/await`) with injected repositories to allow easy mocking and unit testing.
-
-## ⚙️ Setup
-
-This project is already pre-configured and versioned with a valid `.xcodeproj`, including the necessary `Info.plist` entries. So, **you can run it immediately without using XcodeGen**.
-
-### ▶️ Running the App (No Setup Required)
-
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/TheusMartins/tv-series-ios-challenge.git
-    cd tv-series-ios-challenge
-    ```
-
-2. Open the project in Xcode:
-
-    ```bash
-    open TVSeriesApp.xcodeproj
-    ```
-
-✅ Done! You can now build and run the app as usual.
-
-### ⚙️ Optional: Regenerating the Project via XcodeGen
-
-If you want to explore the modular architecture or reset the project structure manually:
-
-1. Make sure [XcodeGen](https://github.com/yonaskolb/XcodeGen) is installed:
-
-    ```bash
-    brew install xcodegen
-    ```
-
-2. Delete the current Xcode project (optional step to avoid conflicts):
-
-    ```bash
-    rm -rf TVSeriesApp.xcodeproj
-    ```
-
-3. Generate a new one:
-
-    ```bash
-    xcodegen
-    ```
-
-4. Open it:
-
-    ```bash
-    open TVSeriesApp.xcodeproj
-    ```
-
-> ⚠️ **Important:** Regenerating the project will override certain manual changes in `Info.plist`, including `UILaunchScreen` settings required for fullscreen support. If you choose to regenerate, ensure you manually reapply those configurations.
-
-## 📁 Folder Structure
-
-This is the actual structure of the repository, organized using `XcodeGen` and a modular architecture:
-
-```bash
-.
-├── App
-│   ├── Info.plist
-│   ├── Sources
-│   │   ├── Features             # SwiftUI features (SeriesList, SeriesDetails)
-│   │   ├── Helpers              # Shared utilities (e.g., String extensions)
-│   │   └── TVSeriesApp.swift    # App entry point
-│   └── Tests
-│       ├── CI                  # (Optional) Continuous Integration hooks or scripts
-│       └── TVSeriesAppTests    # ViewModel and logic unit tests
-├── Demo
-│   └── DemoPreview.mp4         # Demo video referenced in README
-├── Modules
-│   ├── Networking
-│   │   ├── Info.plist
-│   │   ├── Networking.xcodeproj
-│   │   ├── Sources             # API requests, endpoint definitions, DTOs
-│   │   ├── Tests               # Networking layer tests
-│   │   └── project.yml
-│   └── UI
-│       ├── Info.plist
-│       ├── Sources             # TVText, TVPill, AppTheme, Colors
-│       ├── Tests               # UI layer component tests (if any)
-│       ├── UI.xcodeproj
-│       └── project.yml
-├── README.md                   # Project overview and setup instructions
-├── TVSeriesApp.xcodeproj       # Generated Xcode project (optional if using `.xcworkspace`)
-│   ├── project.pbxproj
-│   ├── project.xcworkspace
-│   │   ├── contents.xcworkspacedata
-│   │   ├── xcshareddata
-│   │   └── xcuserdata
-│   ├── xcshareddata
-│   │   └── xcschemes
-│   └── xcuserdata
-│       └── matheusmartins.xcuserdatad
-└── project.yml                 # XcodeGen configuration file
+State is handled via `@StateObject` and `@Published` properties in SwiftUI-compatible `ViewModels`. Data fetching uses Swift Concurrency (`async/await`) with injected repositories for easy mocking and unit testing.
 
 ## ✨ Key Features
 
 - Infinite scroll with pagination
+- Series search by name with debounce
 - Series detail view with poster, summary, and episodes per season
+- Tap to navigate to episode detail
 - Fully responsive layout using `LazyVStack` and `ScrollView`
 - HTML-stripped summaries to avoid runtime crashes
-- Light and Dark Mode support via a centralized `AppTheme`
+- Light and Dark Mode support via centralized `AppTheme`
 - Navigation using native `NavigationView` and `NavigationLink`
 
 ## ⚠️ HTML Handling
@@ -141,14 +50,15 @@ The project includes unit tests focusing on:
 
 - `ViewModel` state transitions (`idle → loading → success`, etc.)
 - Error fallback and messaging
-- Episode filtering based on selected season
+- Episode filtering by season
+- Series search result handling
 - A custom observer (`ViewStateSpy`) to verify async flow
 
-📌 I intentionally didn’t include snapshot tests to keep the scope clean, but the project is ready for them.
+📌 Snapshot testing was skipped to keep the scope focused.
 
 ## 🎨 Design & Theming
 
-TVSeriesApp includes dynamic support for Light and Dark Mode using a custom theme system:
+TVSeriesApp supports Light and Dark Mode using a custom `AppTheme` with dynamic color resolution:
 
 ```swift
 AppTheme.shared.colors.background
@@ -156,40 +66,82 @@ AppTheme.shared.colors.primary
 AppTheme.shared.colors.accent
 ```
 
-This ensures readability and consistency across appearances. I avoided pure black/white to provide a more polished feel.
+This approach avoids pure black/white tones and provides a smoother visual experience.
 
 ## 🚫 Why Not Kingfisher?
 
-I considered using libraries like Kingfisher for image loading, but chose to rely on native `AsyncImage` to demonstrate full command of built-in SwiftUI APIs. This approach reduces dependencies and ensures compatibility across platforms.
+I considered using libraries like Kingfisher for image loading, but chose native `AsyncImage` to demonstrate full command of SwiftUI's APIs. This reduces dependencies and ensures cross-platform compatibility.
 
 ## 🧪 Schemes
 
-The project provides pre-configured Xcode schemes to help developers and CI pipelines execute tasks independently across modules:
+The project includes pre-configured schemes for CI and local testing:
 
 | Scheme              | Description                                            |
 |---------------------|--------------------------------------------------------|
-| `TVSeriesApp`       | Main application scheme for local builds and previews |
-| `TVSeriesAppTests`  | Executes unit tests targeting app-level ViewModels    |
-| `UI`                | Compiles and tests shared UI components like `TVText`, `TVPill` |
-| `Networking`        | Targets and tests the networking module independently |
-| `DASCII` (CI Scheme)| Simulates a full CI run by executing all test targets |
+| `TVSeriesApp`       | Main application scheme for local builds              |
+| `TVSeriesAppTests`  | Unit tests for app logic and ViewModels               |
+| `UI`                | Tests reusable UI components like `TVText`, `TVPill`  |
+| `Networking`        | Tests network layer and endpoint logic                |
+| `DASCII` (CI Scheme)| Full test suite execution for CI                      |
 
-These schemes are automatically generated via `XcodeGen`, ensuring consistency across environments and making CI integration trivial.
+Generated automatically with `XcodeGen`.
 
-## 🧩 Future Improvements
+## 📁 Folder Structure
 
-- Snapshot testing (`iOSSnapshotTestCase`)
-- i18n and accessibility improvements
-- Add support for favorites/bookmarks
-- Analytics and event tracking per screen
-- Animations and placeholder skeletons for image loading
+```
+.
+├── App
+│   ├── Info.plist
+│   ├── Sources
+│   │   ├── Features             # SwiftUI features (SeriesList, SeriesDetails, EpisodeDetails)
+│   │   ├── Helpers              # Shared utilities (e.g., String extensions)
+│   │   └── TVSeriesApp.swift    # App entry point
+│   └── Tests
+│       ├── CI                  # (Optional) Continuous Integration hooks
+│       └── TVSeriesAppTests    # ViewModel and logic unit tests
+├── Demo
+│   └── DemoPreview.mp4         # Demo video used above
+├── Modules
+│   ├── Networking
+│   │   ├── Info.plist
+│   │   ├── Networking.xcodeproj
+│   │   ├── Sources             # API requests, endpoint definitions, DTOs
+│   │   ├── Tests               # Networking layer tests
+│   │   └── project.yml
+│   └── UI
+│       ├── Info.plist
+│       ├── Sources             # TVText, TVPill, AppTheme, Colors
+│       ├── Tests               # UI layer component tests (if any)
+│       ├── UI.xcodeproj
+│       └── project.yml
+├── README.md                   # You are here!
+├── TVSeriesApp.xcodeproj       # Versioned Xcode project (use as-is)
+└── project.yml                 # XcodeGen configuration file
+```
+
+## ⚙️ Setup
+
+This project is already versioned with a valid `.xcodeproj`, including necessary `Info.plist` settings. You can run it immediately without using `XcodeGen`.
+
+### ▶️ To Run:
+
+```bash
+git clone https://github.com/TheusMartins/tv-series-ios-challenge.git
+cd tv-series-ios-challenge
+open TVSeriesApp.xcodeproj
+```
+
+### ⚠️ To Regenerate (Optional):
+
+```bash
+brew install xcodegen
+rm -rf TVSeriesApp.xcodeproj
+xcodegen
+open TVSeriesApp.xcodeproj
+```
+
+> ⚠️ Regenerating will override `Info.plist` customizations (e.g. `UILaunchScreen`).
 
 ## 🙌 Final Notes
 
-This project was built as a personal initiative to explore advanced SwiftUI patterns and modular app architecture with `XcodeGen`. It reflects how I would approach a real-world production codebase from scratch.
-
-> ⚠️ Note: The Xcode project and Info.plist files are already configured and versioned. You can run the project immediately without using `xcodegen`.
-
-> 💡 `xcodegen` is only required if you need to regenerate the project structure. Be aware that this may override keys such as `UILaunchScreen` in `Info.plist`.
-
-Feedback is welcome!
+This is a personal exploration of modular architecture and SwiftUI patterns. Feedback is welcome!
