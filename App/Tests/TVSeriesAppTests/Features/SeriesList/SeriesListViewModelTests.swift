@@ -101,6 +101,60 @@ final class SeriesListViewModelTests: XCTestCase {
             XCTFail("Expected success with same items")
         }
     }
+    
+    func test_searchSeries_shouldSetStateToSuccess() async {
+        // Given
+        let (sut, spy) = await makeSUT()
+        await MainActor.run { sut.searchText = "Friends" }
+        spy.searchResult = .success([.mock(id: 1, name: "Friends")])
+
+        // When
+        await sut.searchSeries()
+
+        // Then
+        switch await sut.state {
+        case .success(let results):
+            XCTAssertEqual(results.first?.name, "Friends")
+        default:
+            XCTFail("Expected success state with results")
+        }
+    }
+
+    func test_searchSeries_shouldSetStateToErrorOnFailure() async {
+        // Given
+        let (sut, spy) = await makeSUT()
+        await MainActor.run { sut.searchText = "Lost" }
+        spy.searchResult = .failure(NSError(domain: "TestError", code: 0))
+
+        // When
+        await sut.searchSeries()
+
+        // Then
+        switch await sut.state {
+        case .error(let message):
+            XCTAssertEqual(message, "Failed to search series.")
+        default:
+            XCTFail("Expected error state")
+        }
+    }
+
+    func test_searchSeries_shouldFallbackToInitialFetchWhenTextIsEmpty() async {
+        // Given
+        let (sut, spy) = await makeSUT()
+        await MainActor.run { sut.searchText = "" }
+        spy.result = .success([.mock(id: 42)])
+        
+        // When
+        await sut.searchSeries()
+
+        // Then
+        switch await sut.state {
+        case .success(let results):
+            XCTAssertEqual(results.first?.id, 42)
+        default:
+            XCTFail("Expected fallback to initial fetch")
+        }
+    }
 }
 
 // MARK: - Spy
@@ -112,6 +166,12 @@ final class SeriesListRepositorySpy: SeriesListRepository {
     func getSeriesList(page: Int) async throws -> [SeriesListModel] {
         receivedPages.append(page)
         return try result.get()
+    }
+    
+    var searchResult: Result<[SeriesListModel], Error> = .success([])
+
+    func searchSeries(by query: String) async throws -> [SeriesListModel] {
+        return try searchResult.get()
     }
 }
 
