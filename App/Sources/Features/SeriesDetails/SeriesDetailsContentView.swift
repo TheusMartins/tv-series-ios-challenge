@@ -39,19 +39,14 @@ struct SeriesDetailsContentView: View {
                     }
                 }
 
-                TVText(uiModel.series.name)
-                    .font(.title)
-                    .foregroundColor(.primary)
+                TVText(uiModel.series.name, font: .title, color: .primary)
 
-                if let summary = uiModel.series.summary {
-                    TVText(summary)
-                        .font(.body)
-                        .foregroundColor(.secondary)
+                if let summary = uiModel.series.summary?.strippedHTMLTags {
+                    TVText(summary, font: .body, color: .secondary)
                 }
 
                 if !availableSeasons.isEmpty {
-                    TVText("Seasons")
-                        .font(.headline)
+                    TVText("Seasons", font: .headline, color: .primary)
                         .padding(.top)
 
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -69,14 +64,10 @@ struct SeriesDetailsContentView: View {
                     LazyVStack(alignment: .leading, spacing: 12) {
                         ForEach(episodes, id: \.id) { episode in
                             VStack(alignment: .leading, spacing: 4) {
-                                TVText(episode.name)
-                                    .font(.subheadline)
+                                TVText(episode.name, font: .subheadline, color: .primary)
 
-                                if let summary = episode.summary {
-                                    TVText(summary)
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                        .lineLimit(3)
+                                if let summary = episode.summary?.strippedHTMLTags {
+                                    TVText(summary, font: .body, color: .secondary)
                                 }
                             }
                             .padding(.vertical, 4)

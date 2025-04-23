@@ -25,7 +25,7 @@ struct TVSeriesCellView: View {
                 case .success(let image):
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
+                        .aspectRatio(contentMode: .fill)
                 case .failure:
                     Color.gray
                 @unknown default:
@@ -40,7 +40,7 @@ struct TVSeriesCellView: View {
                 TVText(title, color: .primary)
                     .font(.headline)
 
-                TVText(summary?.htmlStripped ?? "", color: .secondary)
+                TVText(summary?.strippedHTMLTags ?? "", color: .secondary)
                     .font(.subheadline)
                     .lineLimit(3)
             }

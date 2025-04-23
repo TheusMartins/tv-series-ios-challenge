@@ -52,7 +52,7 @@ struct SeriesListView: View {
                         NavigationLink(destination: SeriesDetailsView(seriesID: item.id)) {
                             TVSeriesCellView(
                                 title: item.name,
-                                summary: item.summary,
+                                summary: item.summary?.strippedHTMLTags,
                                 imageURL: item.image?.original
                             )
                         }
