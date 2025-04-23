@@ -41,16 +41,12 @@ final class SeriesDetailsViewModel: ObservableObject {
 
     func fetchDetails() async {
         state = .loading
-        print("🐛 Banana: Fetching details for series ID \(seriesID)")
 
         do {
             let details = try await repository.getSeriesDetails(id: seriesID)
-            print("🐛 Banana: Successfully fetched series details")
 
             if details.type?.lowercased() != .movie {
-                print("🐛 Banana: Series is a show. Fetching episodes...")
                 let episodes = try await repository.getSeriesEpisodes(id: seriesID)
-                print("🐛 Banana: Fetched \(episodes.count) episodes")
 
                 let seasons = Set(episodes.map { $0.season }).sorted()
                 availableSeasons = seasons
@@ -60,14 +56,12 @@ final class SeriesDetailsViewModel: ObservableObject {
                 updateFilteredEpisodes()
 
             } else {
-                print("🐛 Banana: Series is a movie. No episodes to fetch.")
                 state = .success(SeriesDetailsUIModel(series: details, episodes: nil))
                 availableSeasons = []
                 filteredEpisodes = []
             }
 
         } catch {
-            print("🐛 Banana: Failed to fetch details or episodes: \(error)")
             state = .error("Failed to load details.")
         }
     }

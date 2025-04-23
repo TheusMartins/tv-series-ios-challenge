@@ -47,7 +47,6 @@ final class SeriesListViewModel: ObservableObject {
             return
         }
 
-        print("🐛 Banana: Triggering pagination for page \(currentPage + 1) due to item: \(currentItem.id)")
         currentPage += 1
         await fetchSeries()
     }
@@ -56,28 +55,22 @@ final class SeriesListViewModel: ObservableObject {
 
     private func fetchSeries() async {
         isFetching = true
-        print("🐛 Banana: Fetching page \(currentPage)")
 
         do {
             let newItems = try await repository.getSeriesList(page: currentPage)
-            print("🐛 Banana: Received \(newItems.count) items on page \(currentPage)")
 
             if newItems.isEmpty {
-                print("🐛 Banana: No more items. Stopping pagination.")
                 hasMorePages = false
             }
 
             switch state {
             case .success(let existing) where currentPage > 1:
-                print("🐛 Banana: Appending to existing list (now total: \(existing.count + newItems.count))")
                 state = .success(existing + newItems)
             default:
-                print("🐛 Banana: Initializing new list with \(newItems.count) items")
                 state = .success(newItems)
             }
 
         } catch {
-            print("🐛 Banana: Failed to fetch series: \(error)")
             state = .error("Failed to load series.")
         }
 
