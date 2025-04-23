@@ -54,10 +54,37 @@ targets:
     sources:
       - path: App/Tests/CI
     dependencies:
-      - target: Networking/NetworkingTests
+      - target: Networking/Networking
+      - target: NetworkingTests
       - target: TVSeriesApp
     info:
       path: App/Tests/CI/Info.plist
     settings:
       base:
         PRODUCT_NAME: TVSeriesCI
+
+  NetworkingTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Modules/Networking/Tests
+    dependencies:
+      - target: Networking/Networking
+    info:
+      path: Modules/Networking/Tests/Info.plist
+    settings:
+      base:
+        PRODUCT_NAME: NetworkingTests
+
+schemes:
+  TVSeriesCI:
+    build:
+      targets:
+        TVSeriesCI: all
+        TVSeriesAppTests: all
+        NetworkingTests: all
+    test:
+      targets:
+        - TVSeriesCI
+        - TVSeriesAppTests
+        - NetworkingTests
