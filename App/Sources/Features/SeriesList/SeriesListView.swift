@@ -8,42 +8,65 @@
 import SwiftUI
 import UI
 
-public struct SeriesListView: View {
+struct SeriesListView: View {
     @StateObject private var viewModel = SeriesListViewModel()
 
-    public init() {}
+    init() {}
 
-    public var body: some View {
-        content
-            .onAppear {
-                Task {
-                    await viewModel.fetchInitialSeries()
-                }
+    var body: some View {
+        ZStack {
+            Color.white
+                .ignoresSafeArea()
+
+            VStack(spacing: 16) {
+                TVText("Shows", color: .primary)
+                    .font(.system(size: 28, weight: .bold))
+                    .foregroundColor(.primary)
+                    .padding(.top, 24)
+
+                content
             }
+            .padding(.horizontal)
+        }
+        .onAppear {
+            Task {
+                await viewModel.fetchInitialSeries()
+            }
+        }
     }
 
     @ViewBuilder
     private var content: some View {
         switch viewModel.state {
         case .idle, .loading:
-            ProgressView("Loading series...")
+            ProgressView("Loading Shows...")
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
 
         case .success(let series):
-            List(series, id: \.id) { item in
-                VStack(alignment: .leading, spacing: 4) {
-                    TVText(item.name)
-                        .font(.headline)
-                    TVPill(item.name)
-                        .font(.subheadline)
-                }
-                .padding(.vertical, 4)
-                .onAppear {
-                    Task {
-                        await viewModel.fetchNextPageIfNeeded(currentItem: item)
+            ScrollView {
+                LazyVStack(spacing: 16) {
+                    ForEach(series, id: \.id) { item in
+                        TVSeriesCellView(
+                            title: item.name,
+                            summary: item.summary,
+                            imageURL: item.image?.original
+                        )
+                        .onAppear {
+                            Task {
+                                await viewModel.fetchNextPageIfNeeded(currentItem: item)
+                            }
+                        }
+                    }
+
+                    // Optional loader at the bottom
+                    if viewModel.isFetching {
+                        ProgressView()
+                            .padding()
                     }
                 }
+                .padding(.bottom, 40)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         case .error(let message):
             VStack(spacing: 12) {
