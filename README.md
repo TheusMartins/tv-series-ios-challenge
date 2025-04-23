@@ -20,22 +20,54 @@ State is handled via `@StateObject` and `@Published` properties in SwiftUI-compa
 
 ## ⚙️ Setup
 
-To run the project locally:
+This project is already pre-configured and versioned with a valid `.xcodeproj`, including the necessary `Info.plist` entries. So, **you can run it immediately without using XcodeGen**.
+
+### ▶️ Running the App (No Setup Required)
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/TheusMartins/tv-series-ios-challenge.git
-cd tv-series-ios-challenge
-```
+    ```bash
+    git clone https://github.com/TheusMartins/tv-series-ios-challenge.git
+    cd tv-series-ios-challenge
+    ```
 
-2. Open and run:
+2. Open the project in Xcode:
 
-```bash
-open TVSeriesApp.xcodeproj
-```
+    ```bash
+    open TVSeriesApp.xcodeproj
+    ```
 
-✅ The project uses Swift 5.9+ and Xcode 15+.
+✅ Done! You can now build and run the app as usual.
+
+### ⚙️ Optional: Regenerating the Project via XcodeGen
+
+If you want to explore the modular architecture or reset the project structure manually:
+
+1. Make sure [XcodeGen](https://github.com/yonaskolb/XcodeGen) is installed:
+
+    ```bash
+    brew install xcodegen
+    ```
+
+2. Delete the current Xcode project (optional step to avoid conflicts):
+
+    ```bash
+    rm -rf TVSeriesApp.xcodeproj
+    ```
+
+3. Generate a new one:
+
+    ```bash
+    xcodegen
+    ```
+
+4. Open it:
+
+    ```bash
+    open TVSeriesApp.xcodeproj
+    ```
+
+> ⚠️ **Important:** Regenerating the project will override certain manual changes in `Info.plist`, including `UILaunchScreen` settings required for fullscreen support. If you choose to regenerate, ensure you manually reapply those configurations.
 
 ## 📁 Folder Structure
 
