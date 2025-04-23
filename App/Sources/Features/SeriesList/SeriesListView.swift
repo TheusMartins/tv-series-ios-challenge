@@ -31,6 +31,7 @@ struct SeriesListView: View {
             }
             .navigationBarHidden(true)
         }
+        .accentColor(TVColors.accent)
         .onAppear {
             Task {
                 await viewModel.fetchInitialSeries()

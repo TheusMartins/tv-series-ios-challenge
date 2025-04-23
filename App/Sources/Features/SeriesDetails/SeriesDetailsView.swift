@@ -20,6 +20,7 @@ struct SeriesDetailsView: View {
             Color.white.ignoresSafeArea()
             content.padding()
         }
+        .tint(TVColors.accent)
         .onAppear {
             Task {
                 await viewModel.fetchDetails()

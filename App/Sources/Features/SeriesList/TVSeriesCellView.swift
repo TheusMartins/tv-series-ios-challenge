@@ -49,7 +49,7 @@ struct TVSeriesCellView: View {
 
             Image(systemName: "chevron.right")
                 .renderingMode(.template)
-                .foregroundColor(.green)
+                .foregroundColor(TVColors.accent)
                 .padding(.top, 4)
         }
         .padding()

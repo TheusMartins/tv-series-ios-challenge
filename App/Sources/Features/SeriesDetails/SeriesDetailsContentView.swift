@@ -23,16 +23,24 @@ struct SeriesDetailsContentView: View {
                     AsyncImage(url: url) { phase in
                         switch phase {
                         case .empty:
-                            ProgressView().frame(height: 200)
+                            ProgressView()
+                                .frame(height: 200)
+                                .frame(maxWidth: .infinity)
+
                         case .success(let image):
                             image
                                 .resizable()
-                                .scaledToFill()
+                                .scaledToFit()
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
                                 .frame(height: 200)
-                                .clipped()
-                                .cornerRadius(8)
+                                .frame(maxWidth: .infinity)
+
                         case .failure:
-                            Color.gray.frame(height: 200)
+                            Color.gray
+                                .frame(height: 200)
+                                .frame(maxWidth: .infinity)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+
                         @unknown default:
                             EmptyView()
                         }
